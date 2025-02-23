@@ -1,39 +1,32 @@
-The article covers a wide range of topics related to SQL, MySQL, and SQL injection techniques. Key topics include:
+This encapsulates the essential topics, ranging from SQL basics and injection methods to advanced exploitation techniques using SQLMap.
 
 - **SQL & Database Fundamentals:**  
-  - Differences between relational (e.g., MySQL, PostgreSQL) and non-relational databases (e.g., MongoDB, Cassandra)  
-  - Basic SQL commands to manage databases, tables, and data (CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER)
+  - Relational (MySQL, PostgreSQL) vs. Non-relational (MongoDB, Cassandra) databases  
+  - Core SQL commands: CREATE, SELECT, INSERT, UPDATE, DELETE, DROP, ALTER
 
-- **MySQL Specifics:**  
-  - How to log in using the command line  
-  - Creating and using databases and tables  
-  - Viewing and modifying table structures (using commands like `DESCRIBE`, `SHOW TABLES`)
+- **MySQL Specifics & Query Techniques:**  
+  - Command line login, creating databases/tables, viewing structures (DESCRIBE, SHOW TABLES)  
+  - Query filtering, sorting, and updating using WHERE, LIKE, ORDER BY, and LIMIT  
+  - Logical operators: AND, OR, NOT
 
-- **SQL Query Techniques:**  
-  - Using clauses such as `WHERE`, `LIKE`, `ORDER BY`, and `LIMIT`  
-  - Sorting, filtering, and updating records
+- **SQL Injection Fundamentals & Techniques:**  
+  - How improper input handling leads to SQL injection vulnerabilities  
+  - Authentication bypass using OR injections and SQL comments (e.g., --, #)  
+  - Exploiting the UNION clause to combine queries and extract data
 
-- **SQL Operators:**  
-  - Logical operators like AND, OR, and NOT and their impact on query results
+- **File Operations via SQL Injection:**  
+  - **User & Privilege Identification:**  
+    - Use USER() and CURRENT_USER() to determine the active account  
+    - Check DBA and FILE privileges via super_priv and information_schema.user_privileges  
+  - **File Reading:**  
+    - Use LOAD_FILE() to access sensitive files (e.g., /etc/passwd, config files)  
+  - **File Writing & Web Shell Deployment:**  
+    - Write files using SELECT ... INTO OUTFILE, handling extra UNION output with empty strings  
+    - Deploy PHP web shells to execute OS commands and retrieve flags
 
-- **SQL Injection Fundamentals:**  
-  - What SQL injection is and how it exploits vulnerabilities  
-  - How improper handling of user input can lead to dangerous SQL injections
+- **Automated Exploitation with SQLMap:**  
+  - Basic usage for detecting SQLi in GET, POST, JSON, and cookie parameters  
+  - Advanced options: bypassing CSRF tokens, WAFs, and unique parameter challenges  
+  - Comprehensive database enumeration, table dumping, and leveraging DBA privileges for OS shell access
 
-- **Injection Techniques for Authentication Bypass:**  
-  - Using OR injection to bypass login forms  
-  - Employing comments (`--`, `#`) to ignore parts of a query
 
-- **UNION Clause Exploitation:**  
-  - How UNION is used to combine multiple SELECT statements  
-  - Determining the number of columns and ensuring compatibility in injected queries
-
-- **Database Enumeration via SQL Injection:**  
-  - Using the `INFORMATION_SCHEMA` to list databases, tables, and columns  
-  - Techniques for dumping data, such as retrieving usernames and passwords
-
-- **Advanced Exploitation Techniques:**  
-  - Reading files from the server through SQL injection  
-  - Escalating privileges and further exploitation once initial access is gained
-
-This comprehensive article serves as both an introduction to SQL basics and a detailed guide on how attackers can exploit SQL injection vulnerabilities in web applications.
